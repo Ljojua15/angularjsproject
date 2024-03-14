@@ -7,6 +7,7 @@ import { UsersComponent } from './users/users.component';
 import { ProjectComponent } from './project/project.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { NewProjectComponent } from './new-project/new-project.component';
+import { CircleTimerComponent } from './circle-timer/circle-timer.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NewProjectComponent } from './new-project/new-project.component';
     UsersComponent,
     ProjectComponent,
     ProjectsComponent,
-    NewProjectComponent
+    NewProjectComponent,
+    CircleTimerComponent
   ],
   imports: [
     BrowserModule,
