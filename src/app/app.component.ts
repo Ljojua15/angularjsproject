@@ -6,8 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  progress: number = 0;
-  noOfFiles: number = 100;
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
+  progress: number = 33456523842387;
+  noOfFiles: number = 300;
   completed: boolean = false;
 
   public ngOnInit(): void {
@@ -15,7 +18,7 @@ export class AppComponent {
   }
 
   delay(ms: number) {
-    return new Promise((resolve, reject) => setTimeout(resolve, 100));
+    return new Promise((resolve, reject) => setTimeout(resolve, 1000));
   }
 
   async updateProgress() {

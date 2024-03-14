@@ -7,7 +7,7 @@ import {Component, Input, SimpleChanges} from '@angular/core';
 })
 export class CircleTimerComponent {
   // @ts-ignore
-  @Input() progress: number = 40;
+  @Input() progress: number = 1000;
 
   ngOnInit(): void {
     let progress = 
