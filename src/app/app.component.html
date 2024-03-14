@@ -14,4 +14,9 @@
 <!--  </div>-->
 <!--</div>-->
 
-<app-circle-timer></app-circle-timer>
+
+<div class="row" *ngIf="!completed">
+    <p>
+        <span> <app-circle-timer [progress]="progress"></app-circle-timer></span>{{ progress }} %
+    </p>
+</div>
