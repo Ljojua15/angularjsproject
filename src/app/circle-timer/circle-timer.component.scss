@@ -1,7 +1,7 @@
 .swiper{
   width: 450px;
   height: 70px;
-  background-color: red;
+  background-color: rgb(22 25 50);
   margin: 50px auto;
   display: flex;
   justify-content: space-around;
@@ -11,8 +11,8 @@
   border-radius: 40px;
   &-color{
     width: 150px;
-    height: 90%;
-    background-color: blue;
+    height: 82%;
+    background-color: #f87070;
     position: absolute;
     border-radius: 40px;
     cursor: pointer;
@@ -27,6 +27,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: #898383;
+    font-size: 20px;
 
   }
 
