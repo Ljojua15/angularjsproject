@@ -1,34 +1,44 @@
-import { Component } from '@angular/core';
+
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title(title: any) {
-    throw new Error('Method not implemented.');
-  }
-  progress: number = 33456523842387;
-  noOfFiles: number = 300;
+export class AppComponent implements  OnInit, OnDestroy {
+  progress: number = 0;
+  noOfFiles: number = 1;
   completed: boolean = false;
+  changeTime: number = this.noOfFiles * 60;
+  subscription: Subscription | undefined;
 
-  public ngOnInit(): void {
+
+
+
+  ngOnInit(): void {
     this.updateProgress();
+    console.log(this.changeTime);
   }
 
-  delay(ms: number) {
-    return new Promise((resolve, reject) => setTimeout(resolve, 1000));
+  ngOnDestroy(): void {
+    if (this.subscription) {
+    this.subscription.unsubscribe();
   }
+}
 
-  async updateProgress() {
+  updateProgress() {
     this.completed = false;
-    let n = 100 / this.noOfFiles;
-    for (let i = 0; i <= this.noOfFiles; i++) {
-      await this.delay(10);
-      this.progress = Math.round(i * n);
-      console.log(i);
-    }
-    this.completed = false;
+    const n = 100 / this.changeTime;
+    this.subscription = interval(1000)
+      .pipe(
+        take(this.changeTime + 1)
+      )
+      .subscribe(() => {
+        this.progress += n;
+        console.log(Math.round(this.progress));
+      });
   }
 }

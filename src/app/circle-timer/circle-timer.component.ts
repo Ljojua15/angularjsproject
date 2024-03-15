@@ -10,7 +10,7 @@ export class CircleTimerComponent {
   @Input() progress: number = 1000;
 
   ngOnInit(): void {
-    let progress = 
+    let progress =
     this.loadData();
   }
 
@@ -18,7 +18,7 @@ export class CircleTimerComponent {
     let scrollProgress = document.getElementById('progress');
 
     // @ts-ignore
-    scrollProgress.style.background = `conic-gradient(#008fff ${this.progress}%, #f2f2f4 0%)`;
+    scrollProgress.style.background = `conic-gradient(#161932 ${this.progress}%, #f87070 0%)`;
   }
 
 
