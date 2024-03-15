@@ -53,7 +53,10 @@ export class CircleTimerComponent {
         this.renderer.setStyle(swiperColor, 'right', 'auto');
         this.renderer.setStyle(swiperColor, 'display', 'block');
         break;
+
     }
+
+
   }
   }
 
