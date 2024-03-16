@@ -31,7 +31,7 @@ export class CircleTimerComponent {
     let scrollProgress = document.getElementById('progress');
 
     // @ts-ignore
-    // scrollProgress.style.background = `conic-gradient(#8ba320 ${this.progress}%, #8ba320 0%)`;
+    scrollProgress.style.background = `conic-gradient(#161932 ${this.progress}%, #8ba320 0%)`;
   }
 
 
@@ -63,7 +63,7 @@ export class CircleTimerComponent {
         this.renderer.setStyle(swiperColor, 'left', '33.5%');
         this.renderer.setStyle(swiperColor, 'right', 'auto');
         this.renderer.setStyle(swiperColor, 'display', 'block');
-    
+        this.loadData1()
         break;
 
     }
