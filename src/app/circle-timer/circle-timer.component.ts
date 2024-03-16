@@ -48,22 +48,22 @@ export class CircleTimerComponent {
       case 1:
         this.renderer.setStyle(swiperColor, 'left', '5px');
         this.renderer.setStyle(swiperColor, 'right', 'auto');
-        this.loadData()
+
         break;
       case 2:
         this.renderer.setStyle(swiperColor, 'left', '33.5%');
-        this.loadData1() 
+  
         break;
       case 3:
         this.renderer.setStyle(swiperColor, 'left', 'auto');
         this.renderer.setStyle(swiperColor, 'left', '65.5%');
-        console.log('lasha3')
+
         break;
       default:
         this.renderer.setStyle(swiperColor, 'left', '33.5%');
         this.renderer.setStyle(swiperColor, 'right', 'auto');
         this.renderer.setStyle(swiperColor, 'display', 'block');
-        console.log('lasha1')
+    
         break;
 
     }
