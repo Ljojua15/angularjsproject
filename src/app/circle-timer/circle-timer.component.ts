@@ -16,7 +16,7 @@ export class CircleTimerComponent {
   }
 
   ngOnInit(): void {
-    let progress =
+    let progress = 
     this.loadData();
 
   }
@@ -27,6 +27,13 @@ export class CircleTimerComponent {
     // @ts-ignore
     scrollProgress.style.background = `conic-gradient(#161932 ${this.progress}%, #f87070 0%)`;
   }
+  loadData1() {
+    let scrollProgress = document.getElementById('progress');
+
+    // @ts-ignore
+    // scrollProgress.style.background = `conic-gradient(#8ba320 ${this.progress}%, #8ba320 0%)`;
+  }
+
 
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -34,24 +41,29 @@ export class CircleTimerComponent {
     this.moveSwiperColor(0); // Initialize swiper-color position
   }
   moveSwiperColor(position: number) {
+    
     const swiperColor = this.swipercolor.nativeElement;
     this.renderer.setStyle(swiperColor, 'transition', 'left 0.5s ease-out');
     switch (position) {
       case 1:
         this.renderer.setStyle(swiperColor, 'left', '5px');
         this.renderer.setStyle(swiperColor, 'right', 'auto');
+        this.loadData()
         break;
       case 2:
         this.renderer.setStyle(swiperColor, 'left', '33.5%');
+        this.loadData1() 
         break;
       case 3:
         this.renderer.setStyle(swiperColor, 'left', 'auto');
         this.renderer.setStyle(swiperColor, 'left', '65.5%');
+        console.log('lasha3')
         break;
       default:
         this.renderer.setStyle(swiperColor, 'left', '33.5%');
         this.renderer.setStyle(swiperColor, 'right', 'auto');
         this.renderer.setStyle(swiperColor, 'display', 'block');
+        console.log('lasha1')
         break;
 
     }
