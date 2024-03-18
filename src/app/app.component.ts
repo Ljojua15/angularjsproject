@@ -10,11 +10,12 @@ import { take } from 'rxjs/operators';
 })
 export class AppComponent implements  OnInit, OnDestroy {
   progress: number = 0;
-  noOfFiles: number = 10;
+  noOfFiles: number = 0;
   completed: boolean = false;
   changeTime: number = this.noOfFiles * 60;
   subscription: Subscription | undefined;
   title: any;
+
 
   distance:number =10*60*60
 

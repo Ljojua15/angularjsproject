@@ -11,11 +11,11 @@ export class CircleTimerComponent {
   @ViewChild('swipercolor') swipercolor!: ElementRef;
 
 
-  firstTimer:number =10
-  secondTimer:number =20
+  firstTimer:number =50
+  secondTimer:number =10
   thirdTimer:number =30
 
-  mainTimer : number = this.firstTimer
+  mainTimer !: number
 
   constructor(private renderer: Renderer2) {}
   ngAfterViewInit() {
@@ -24,11 +24,7 @@ export class CircleTimerComponent {
 
   }
 
-
-
   ngOnInit(): void {
-
-
 
   }
 
@@ -43,7 +39,9 @@ export class CircleTimerComponent {
       color = '#f87070'
     }else if(type === 'third') {
       color = 'red'
+
     }
+    console.log(color)
 
     // @ts-ignore
     scrollProgress.style.background = `conic-gradient( #161932 ${this.progress}%, ${color} 0%)`;
