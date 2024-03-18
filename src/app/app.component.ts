@@ -10,23 +10,28 @@ import { take } from 'rxjs/operators';
 })
 export class AppComponent implements  OnInit, OnDestroy {
   progress: number = 0;
-  noOfFiles: number = 0;
+  noOfFiles: number = 10;
   completed: boolean = false;
   changeTime: number = this.noOfFiles * 60;
   subscription: Subscription | undefined;
   title: any;
 
+  distance:number =10*60*60
 
+minutes = Math.floor((this.distance % (1000 * 60 * 60)) / (1000* 60)) ;
+seconds = Math.floor((this.distance % (1000 * 60)) / (1000) );
 
 
   ngOnInit(): void {
     this.updateProgress();
     console.log(this.changeTime);
+    console.log(this.minutes, this.seconds)
   }
 
   ngOnDestroy(): void {
     if (this.subscription) {
     this.subscription.unsubscribe();
+
   }
 }
 
@@ -40,6 +45,7 @@ export class AppComponent implements  OnInit, OnDestroy {
       .subscribe(() => {
         this.progress += n;
         console.log(Math.round(this.progress));
+
       });
   }
 }
