@@ -1,5 +1,5 @@
 <div class="swiper">
-    <div class="swiper-color" #swipercolor></div>
+    <div class="swiper-color" [style.background-color]="colorChange"  #swipercolor></div>
     <span (click)="moveSwiperColor(1)">T i m e r 2</span>
     <span (click)="moveSwiperColor(2)">T i m e r 1</span>
     <span (click)="moveSwiperColor(3)">T i m e r 3</span>
@@ -8,9 +8,9 @@
 
 <div class="main">
     <div class="main__same">
-        <div id="progress">
-            <div class="main__midle">
-                <span class="main__midle-time">{{mainTimer}}</span>
+        <div id="progress" #colorCircle>
+            <div class="main__midle" >
+                <span class="main__midle-time" >{{mainTimer}}</span>
                 <div class="main__midle-start">P A U S E</div>
             </div>
         </div>
