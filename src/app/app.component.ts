@@ -38,15 +38,15 @@ export class AppComponent implements  OnInit, OnDestroy {
   }
 }
 
-  incr(type: 'M' | 'S'){
-    if(type === 'M'){
-      if(this.minutes >= 59) return;
-      this.minutes += 1;
-    }else {
-      if(this.seconds >=59) return;
-      this.seconds += 1
-    }
-  }
+  // incr(type: 'M' | 'S'){
+  //   if(type === 'M'){
+  //     if(this.minutes >= 59) return;
+  //     this.minutes += 1;
+  //   }else {
+  //     if(this.seconds >=59) return;
+  //     this.seconds += 1
+  //   }
+  // }
   // decr(type: 'M' | 'S'){
   //   if(type === 'M'){
   //     if(this.minutes <= 0) return;
