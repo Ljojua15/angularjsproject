@@ -47,15 +47,15 @@ export class AppComponent implements  OnInit, OnDestroy {
       this.seconds += 1
     }
   }
-  decr(type: 'M' | 'S'){
-    if(type === 'M'){
-      if(this.minutes <= 0) return;
-      this.minutes -= 1;
-    }else {
-      if(this.seconds <=0) return;
-      this.seconds -= 1
-    }
-  }
+  // decr(type: 'M' | 'S'){
+  //   if(type === 'M'){
+  //     if(this.minutes <= 0) return;
+  //     this.minutes -= 1;
+  //   }else {
+  //     if(this.seconds <=0) return;
+  //     this.seconds -= 1
+  //   }
+  // }
 
 
   updateTimer(){
