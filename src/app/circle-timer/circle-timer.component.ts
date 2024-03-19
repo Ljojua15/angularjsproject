@@ -11,7 +11,7 @@ export class CircleTimerComponent {
   @ViewChild('swipercolor') swipercolor!: ElementRef;
   @ViewChild('colorCircle') colorCircle!: ElementRef;
 
-
+  test = false
   firstTimer:number =20
   secondTimer:number =10
   thirdTimer:number =30
@@ -50,7 +50,6 @@ export class CircleTimerComponent {
 
     }
 
-
     // @ts-ignore
     this.renderer.setStyle(colorCircle, 'background', `conic-gradient( #161932 ${this.progress}%, ${this.colorChange} 0%)`);
     this.mainTimer = arg
@@ -71,36 +70,37 @@ export class CircleTimerComponent {
 
 
   moveSwiperColor(position: number) {
-
+    this.test =false
     const swiperColor = this.swipercolor.nativeElement;
     this.renderer.setStyle(swiperColor, 'transition', 'left 0.5s ease-out');
-    switch (position) {
-      case 1:
-        this.renderer.setStyle(swiperColor, 'left', '5px');
-        this.renderer.setStyle(swiperColor, 'right', 'auto');
-        this.loadData(this.firstTimer, 'first')
-        console.log(this.firstTimer)
-        break;
-      case 2:
-        this.renderer.setStyle(swiperColor, 'left', '33.5%');
-        this.loadData(this.secondTimer, 'second');
-        break;
-      case 3:
-        this.renderer.setStyle(swiperColor, 'left', 'auto');
-        this.renderer.setStyle(swiperColor, 'left', '65.5%');
-        this.loadData(this.thirdTimer, 'third');
-        console.log(this.thirdTimer);
+
+      switch (position) {
+        case 1:
+          this.renderer.setStyle(swiperColor, 'left', '5px');
+          this.renderer.setStyle(swiperColor, 'right', 'auto');
+          this.loadData(this.firstTimer, 'first')
+          console.log(this.firstTimer)
+          break;
+        case 2:
+          this.renderer.setStyle(swiperColor, 'left', '33.5%');
+          this.loadData(this.secondTimer, 'second');
+          break;
+        case 3:
+          this.renderer.setStyle(swiperColor, 'left', 'auto');
+          this.renderer.setStyle(swiperColor, 'left', '65.5%');
+          this.loadData(this.thirdTimer, 'third');
+          console.log(this.thirdTimer);
 
 
-        break;
-      default:
-        this.renderer.setStyle(swiperColor, 'left', '33.5%');
-        this.renderer.setStyle(swiperColor, 'right', 'auto');
-        this.renderer.setStyle(swiperColor, 'display', 'block');
-        this.loadData(this.secondTimer, 'second');
-        break;
+          break;
+        default:
+          this.renderer.setStyle(swiperColor, 'left', '33.5%');
+          this.renderer.setStyle(swiperColor, 'right', 'auto');
+          this.renderer.setStyle(swiperColor, 'display', 'block');
+          this.loadData(this.secondTimer, 'second');
+          break;
 
-    }
+      }
 
 
   }

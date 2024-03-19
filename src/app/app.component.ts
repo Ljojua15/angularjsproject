@@ -14,19 +14,21 @@ export class AppComponent implements  OnInit, OnDestroy {
   completed: boolean = false;
   changeTime: number = this.noOfFiles * 60;
   subscription: Subscription | undefined;
-  title: any;
 
+  minutes:number = 20;
+  seconds:number = 10;
+  timer :any
+  date = new Date();
 
-  distance:number =10*60*60
+  stopBtn: boolean = false;
+  startBtm: boolean = false;
 
-minutes = Math.floor((this.distance % (1000 * 60 * 60)) / (1000* 60)) ;
-seconds = Math.floor((this.distance % (1000 * 60)) / (1000) );
 
 
   ngOnInit(): void {
     this.updateProgress();
-    console.log(this.changeTime);
-    console.log(this.minutes, this.seconds)
+    this.updateTimer()
+    this.start()
   }
 
   ngOnDestroy(): void {
@@ -35,6 +37,74 @@ seconds = Math.floor((this.distance % (1000 * 60)) / (1000) );
 
   }
 }
+
+  incr(type: 'M' | 'S'){
+    if(type === 'M'){
+      if(this.minutes >= 59) return;
+      this.minutes += 1;
+    }else {
+      if(this.seconds >=59) return;
+      this.seconds += 1
+    }
+  }
+  decr(type: 'M' | 'S'){
+    if(type === 'M'){
+      if(this.minutes <= 0) return;
+      this.minutes -= 1;
+    }else {
+      if(this.seconds <=0) return;
+      this.seconds -= 1
+    }
+  }
+
+
+  updateTimer(){
+    this.date.setMinutes(this.minutes)
+    this.date.setSeconds(this.seconds)
+    this.date.setMilliseconds(0)
+
+    const time = this.date.getTime()
+    this.date.setTime(time - 1000)
+
+    this.minutes = this.date.getMinutes();
+    this.seconds = this.date.getSeconds()
+
+    if (this.date.getMinutes() === 0 &&
+    this.date.getSeconds() === 0){
+      clearInterval(this.timer);
+      setTimeout(() =>{
+        this.stop()
+      }, 5000)
+    }
+  }
+
+  stop(){
+    clearInterval(this.timer)
+    this.startBtm = true
+  }
+
+  reset(){
+    this.minutes = 0;
+    this.seconds = 0;
+    this.stop()
+  }
+
+
+  start(){
+    if(this.minutes > 0 || this.seconds > 0){
+      this.stopBtn = true;
+      this.updateTimer()
+
+      if (this.seconds > 0 ) {
+        this.timer = setInterval(() => {
+          this.updateTimer();
+        }, 1000)
+      }
+    }
+  }
+
+
+
 
   updateProgress() {
     this.completed = false;
