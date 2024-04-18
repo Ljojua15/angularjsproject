@@ -8,6 +8,7 @@ import { ProjectComponent } from './project/project.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { CircleTimerComponent } from './circle-timer/circle-timer.component';
+import { RadioButtonComponent } from './radio-button/radio-button.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CircleTimerComponent } from './circle-timer/circle-timer.component';
     ProjectComponent,
     ProjectsComponent,
     NewProjectComponent,
-    CircleTimerComponent
+    CircleTimerComponent,
+    RadioButtonComponent
   ],
   imports: [
     BrowserModule,

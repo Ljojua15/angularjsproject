@@ -1,0 +1,30 @@
+.margin {
+    margin: auto;
+    width: 700px;
+    height: 900px;
+    background-color: rgb(90, 90, 151);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    &__cont {
+        width: 230px;
+        height: 70px;
+        background-color: aqua;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        &__btn {
+            width: 70px;
+            height: 40px;
+            background-color: aqua;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: red;
+            border-radius: 3px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    }
+}
